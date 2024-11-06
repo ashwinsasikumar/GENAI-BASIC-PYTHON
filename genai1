@@ -1,0 +1,7 @@
+import google.generativeai as genai
+genai.configure(api_key='AIzaSyCGvvSROOdr3ptLz2AqykmTTinKyMxBfWA')
+model = genai.GenerativeModel("gemini-1.5-flash")
+ques=input("enter your question: ")
+response = model.generate_content(ques, stream=True)
+for chunk in response:
+    print(chunk.text)
